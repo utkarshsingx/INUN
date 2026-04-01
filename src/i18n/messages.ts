@@ -11,6 +11,8 @@ export type Messages = {
   navCloseMenu: string;
   navHome: string;
   navOpenLms: string;
+  /** Landmark label for the mobile slide-down menu (not the toggle). */
+  navMobileNavLabel: string;
   prefThemeLight: string;
   prefThemeDark: string;
   prefLangEnglish: string;
@@ -92,6 +94,7 @@ export const messagesEn: Messages = {
   navCloseMenu: "Close menu",
   navHome: "Inun home",
   navOpenLms: "Open LMS",
+  navMobileNavLabel: "Site navigation",
   prefThemeLight: "Switch to light mode",
   prefThemeDark: "Switch to dark mode",
   prefLangEnglish: "English",
@@ -268,6 +271,7 @@ export const messagesAr: Messages = {
   navCloseMenu: "إغلاق القائمة",
   navHome: "الرئيسية — إنون",
   navOpenLms: "فتح المنصة",
+  navMobileNavLabel: "التنقل في الموقع",
   prefThemeLight: "الوضع الفاتح",
   prefThemeDark: "الوضع الداكن",
   prefLangEnglish: "English",

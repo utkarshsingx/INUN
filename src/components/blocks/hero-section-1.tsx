@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedGroup } from "@/components/ui/animated-group";
@@ -146,7 +147,8 @@ export function HeroSection() {
 function HeroHeader() {
   const [menuState, setMenuState] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
-  const { messages } = useAppPreferences();
+  const { messages, locale } = useAppPreferences();
+  const reducedMotion = useReducedMotion() === true;
 
   const menuItems = React.useMemo(
     () => [
@@ -179,8 +181,40 @@ function HeroHeader() {
     };
   }, [menuState]);
 
+  React.useEffect(() => {
+    if (!menuState) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuState(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuState]);
+
+  const closeMenu = React.useCallback(() => setMenuState(false), []);
+
+  const linkStaggerX = locale === "ar" ? 8 : -8;
+
   return (
     <header>
+      <AnimatePresence>
+        {menuState && (
+          <motion.div
+            key="nav-backdrop"
+            role="presentation"
+            aria-hidden
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              duration: reducedMotion ? 0.12 : 0.22,
+              ease: "easeOut",
+            }}
+            className="fixed inset-0 z-[19] cursor-default bg-stone-950/40 backdrop-blur-[3px] lg:hidden"
+            onClick={() => setMenuState(false)}
+          />
+        )}
+      </AnimatePresence>
+
       <nav
         data-state={menuState ? "active" : undefined}
         className="group fixed z-20 w-full max-w-[100vw] px-2 pt-[env(safe-area-inset-top,0px)]"
@@ -212,26 +246,40 @@ function HeroHeader() {
                 <PreferenceControls compact />
                 <button
                   type="button"
+                  id="mobile-nav-toggle"
+                  aria-expanded={menuState}
+                  aria-controls={menuState ? "mobile-nav-panel" : undefined}
                   onClick={() => setMenuState(!menuState)}
                   aria-label={
                     menuState ? messages.navCloseMenu : messages.navOpenMenu
                   }
-                  className="relative z-20 -m-2.5 -me-2 block min-h-11 min-w-11 cursor-pointer touch-manipulation p-2.5 sm:-me-4"
+                  className={cn(
+                    "relative z-[21] flex min-h-11 min-w-11 cursor-pointer touch-manipulation items-center justify-center rounded-2xl border p-0 shadow-sm transition-[transform,box-shadow,background-color,border-color] duration-200 active:scale-[0.96]",
+                    "border-stone-200/90 bg-white/95 text-stone-800 backdrop-blur-md dark:border-white/12 dark:bg-zinc-900/95 dark:text-zinc-100",
+                    menuState &&
+                      "border-emerald-500/40 bg-emerald-50/90 shadow-[0_0_0_1px_rgba(16,185,129,0.25)] ring-2 ring-emerald-500/20 dark:border-emerald-500/35 dark:bg-emerald-950/50 dark:shadow-[0_0_0_1px_rgba(16,185,129,0.2)] dark:ring-emerald-500/25",
+                  )}
                 >
-                  <Menu
-                    className={cn(
-                      "m-auto size-6 duration-200",
-                      menuState && "scale-0 opacity-0",
-                    )}
-                  />
-                  <X
-                    className={cn(
-                      "absolute inset-0 m-auto size-6 duration-200",
-                      menuState
-                        ? "rotate-0 scale-100 opacity-100"
-                        : "rotate-90 scale-0 opacity-0",
-                    )}
-                  />
+                  <span className="relative block size-6">
+                    <Menu
+                      className={cn(
+                        "absolute inset-0 m-auto size-6 transition-all duration-200",
+                        menuState
+                          ? "rotate-90 scale-0 opacity-0"
+                          : "rotate-0 scale-100 opacity-100",
+                      )}
+                      aria-hidden
+                    />
+                    <X
+                      className={cn(
+                        "absolute inset-0 m-auto size-6 transition-all duration-200",
+                        menuState
+                          ? "rotate-0 scale-100 opacity-100"
+                          : "-rotate-90 scale-0 opacity-0",
+                      )}
+                      aria-hidden
+                    />
+                  </span>
                 </button>
               </div>
             </div>
@@ -251,30 +299,83 @@ function HeroHeader() {
               </ul>
             </div>
 
+            <AnimatePresence>
+              {menuState && (
+                <motion.div
+                  key="mobile-nav-panel"
+                  id="mobile-nav-panel"
+                  role="region"
+                  aria-label={messages.navMobileNavLabel}
+                  initial={{ opacity: 0, y: reducedMotion ? 0 : -10, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: reducedMotion ? 0 : -8, scale: 0.98 }}
+                  transition={
+                    reducedMotion
+                      ? { duration: 0.18, ease: "easeOut" }
+                      : {
+                          type: "spring",
+                          stiffness: 420,
+                          damping: 32,
+                          mass: 0.85,
+                        }
+                  }
+                  className="relative z-[21] mb-6 flex w-full max-h-[min(70vh,28rem)] flex-col flex-wrap items-stretch justify-end gap-4 space-y-6 overflow-y-auto overscroll-contain rounded-3xl border border-stone-200/90 bg-white/98 p-5 pb-safe shadow-[0_24px_60px_-12px_rgba(15,23,42,0.18)] ring-1 ring-stone-900/[0.04] md:flex-nowrap dark:border-white/10 dark:bg-zinc-900/98 dark:shadow-[0_24px_50px_-12px_rgba(0,0,0,0.55)] dark:ring-white/[0.06] lg:hidden"
+                >
+                  <ul className="space-y-0.5 text-base">
+                    {menuItems.map((item, i) => (
+                      <motion.li
+                        key={item.href}
+                        initial={{ opacity: 0, x: reducedMotion ? 0 : linkStaggerX }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={
+                          reducedMotion
+                            ? { duration: 0.12, ease: "easeOut" }
+                            : {
+                                delay: 0.04 + i * 0.05,
+                                type: "spring" as const,
+                                stiffness: 380,
+                                damping: 28,
+                              }
+                        }
+                      >
+                        <a
+                          href={item.href}
+                          className="text-muted-foreground hover:text-accent-foreground flex min-h-12 items-center rounded-xl px-3 py-2.5 text-[0.9375rem] font-medium transition-colors duration-150 hover:bg-stone-100/90 active:bg-stone-200/80 dark:hover:bg-white/[0.07] dark:active:bg-white/10"
+                          onClick={closeMenu}
+                        >
+                          <span>{item.name}</span>
+                        </a>
+                      </motion.li>
+                    ))}
+                  </ul>
+                  <div className="flex w-full flex-col gap-3 border-t border-stone-200/80 pt-4 dark:border-white/10 sm:flex-row sm:items-center">
+                    <Button
+                      asChild
+                      size="sm"
+                      className="min-h-11 w-full rounded-xl sm:min-h-9 sm:w-auto"
+                    >
+                      <a
+                        href={LMS_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={closeMenu}
+                      >
+                        <span>{messages.navOpenLms}</span>
+                      </a>
+                    </Button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
             <div
               className={cn(
-                "mb-6 hidden max-h-[min(70vh,28rem)] w-full flex-wrap items-center justify-end gap-4 space-y-8 overflow-y-auto overscroll-contain rounded-3xl border border-stone-200/90 bg-white/95 p-5 pb-safe shadow-2xl shadow-stone-300/25 md:flex-nowrap dark:border-white/10 dark:bg-zinc-900/95 dark:shadow-none",
-                "group-data-[state=active]:flex",
-                "lg:m-0 lg:max-h-none lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:overflow-visible lg:border-transparent lg:bg-transparent lg:p-0 lg:pb-0 lg:shadow-none dark:lg:bg-transparent",
+                "mb-6 hidden w-full flex-wrap items-center justify-end gap-4 space-y-8 md:flex-nowrap",
+                "lg:m-0 lg:ml-auto lg:flex lg:w-fit lg:gap-6 lg:space-y-0",
               )}
             >
               <PreferenceControls className="hidden lg:flex" />
-              <div className="lg:hidden">
-                <ul className="space-y-1 text-base">
-                  {menuItems.map((item) => (
-                    <li key={item.href}>
-                      <a
-                        href={item.href}
-                        className="text-muted-foreground hover:text-accent-foreground flex min-h-12 items-center rounded-lg px-0 py-2 duration-150 active:bg-stone-100/80 dark:active:bg-white/5"
-                        onClick={() => setMenuState(false)}
-                      >
-                        <span>{item.name}</span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
+              <div className="hidden w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:flex">
                 <Button
                   asChild
                   size="sm"
@@ -283,12 +384,7 @@ function HeroHeader() {
                     isScrolled && "lg:hidden",
                   )}
                 >
-                  <a
-                    href={LMS_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setMenuState(false)}
-                  >
+                  <a href={LMS_URL} target="_blank" rel="noopener noreferrer">
                     <span>{messages.navOpenLms}</span>
                   </a>
                 </Button>
