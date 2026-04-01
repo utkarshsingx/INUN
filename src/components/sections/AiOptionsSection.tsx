@@ -15,25 +15,25 @@ export function AiOptionsSection() {
     <AnimatedSection
       id="ai"
       surface="tinted"
-      className="scroll-mt-24 border-b border-stone-200/80 px-4 py-20 sm:px-6 sm:py-24 dark:border-white/10"
+      className="scroll-mt-24 border-b border-stone-200/80 px-safe py-16 sm:px-6 sm:py-20 md:py-24 dark:border-white/10"
     >
       <div className="mx-auto max-w-5xl">
         <StaggeredBlock className="text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-emerald-800 dark:text-emerald-400">
             {messages.aiKicker}
           </p>
-          <h2 className="font-display mt-2 text-3xl font-semibold tracking-tight text-stone-900 sm:text-4xl dark:text-zinc-50">
+          <h2 className="font-display mt-2 text-2xl font-semibold tracking-tight text-stone-900 sm:text-3xl md:text-4xl dark:text-zinc-50">
             {messages.aiTitle}
           </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-stone-600 dark:text-zinc-400">
+          <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-stone-600 sm:mt-6 sm:text-lg dark:text-zinc-400">
             {messages.aiIntro}
           </p>
         </StaggeredBlock>
         <motion.ul
-          className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-10 grid gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3"
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-40px" }}
+          viewport={{ once: true, margin: "0px", amount: "some" }}
           variants={{
             hidden: {},
             show: {
@@ -52,7 +52,7 @@ export function AiOptionsSection() {
                   transition: { duration: 0.45, ease: [0.25, 0.1, 0.25, 1] },
                 },
               }}
-              className="card-surface card-surface-hover flex flex-col p-6"
+              className="card-surface card-surface-hover flex flex-col p-5 active:bg-stone-50/90 sm:p-6 dark:active:bg-white/10"
             >
               <h3 className="font-display text-lg font-semibold text-stone-900 dark:text-zinc-50">
                 {item.title}

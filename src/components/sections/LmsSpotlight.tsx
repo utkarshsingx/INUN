@@ -44,33 +44,33 @@ export function LmsSpotlight() {
     <AnimatedSection
       id="lms"
       surface="feature"
-      className="scroll-mt-24 border-b border-stone-200/80 px-4 py-20 sm:px-6 sm:py-24 dark:border-white/10"
+      className="scroll-mt-24 border-b border-stone-200/80 px-safe py-16 sm:px-6 sm:py-20 md:py-24 dark:border-white/10"
     >
       <div className="mx-auto max-w-6xl">
         <StaggeredBlock className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-emerald-800 dark:text-emerald-400">
             {messages.lmsKicker}
           </p>
-          <h2 className="font-display mt-2 text-3xl font-semibold tracking-tight text-stone-900 sm:text-4xl dark:text-zinc-50">
+          <h2 className="font-display mt-2 text-2xl font-semibold tracking-tight text-stone-900 sm:text-3xl md:text-4xl dark:text-zinc-50">
             {messages.lmsTitle}
           </h2>
-          <p className="mt-5 text-lg leading-relaxed text-stone-600 dark:text-zinc-400">
+          <p className="mt-4 text-base leading-relaxed text-stone-600 sm:mt-5 sm:text-lg dark:text-zinc-400">
             {messages.lmsIntro}
           </p>
         </StaggeredBlock>
 
         <motion.ul
-          className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-10 grid gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3"
           variants={listVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-40px" }}
+          viewport={{ once: true, margin: "0px", amount: "some" }}
         >
           {lmsFeatures.map((item, idx) => (
             <motion.li
               key={item.title}
               variants={cardVariants}
-              className="group card-surface card-surface-hover flex flex-col p-6"
+              className="group card-surface card-surface-hover flex flex-col p-5 active:bg-stone-50/90 sm:p-6 dark:active:bg-white/10"
             >
               <span
                 className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 ring-1 ring-emerald-100 transition group-hover:bg-emerald-100/80 dark:bg-emerald-950/50 dark:ring-emerald-900"
@@ -89,20 +89,22 @@ export function LmsSpotlight() {
         </motion.ul>
 
         <motion.div
-          className="mt-16 grid gap-12 rounded-3xl border border-stone-200/80 bg-stone-50/50 p-6 shadow-inner sm:p-10 lg:grid-cols-2 lg:items-center lg:gap-14 dark:border-white/10 dark:bg-zinc-900/50"
+          className="mt-12 grid gap-8 rounded-3xl border border-stone-200/80 bg-stone-50/50 p-5 shadow-inner sm:mt-16 sm:gap-12 sm:p-10 lg:grid-cols-2 lg:items-center lg:gap-14 dark:border-white/10 dark:bg-zinc-900/50"
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: true, margin: "0px", amount: "some" }}
           transition={{ duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          <div className="relative overflow-hidden rounded-2xl border border-stone-200/90 bg-white shadow-lg ring-1 ring-stone-900/5 dark:border-white/10 dark:bg-zinc-900">
+          <div className="relative aspect-[16/11] w-full overflow-hidden rounded-2xl border border-stone-200/90 bg-white shadow-lg ring-1 ring-stone-900/5 sm:aspect-auto sm:h-auto dark:border-white/10 dark:bg-zinc-900">
             <img
               src="/images/course.png"
               alt={messages.lmsCourseImgAlt}
               width={1920}
               height={1080}
-              className="h-auto w-full object-cover object-top"
+              className="h-full w-full object-cover object-top sm:h-auto sm:max-h-[min(70vh,560px)] sm:w-full"
+              sizes="(max-width: 1024px) 100vw, 560px"
               loading="lazy"
+              decoding="async"
             />
           </div>
           <div>

@@ -12,22 +12,22 @@ export function ComingSoonSection() {
     <AnimatedSection
       id="coming-soon"
       surface="calm"
-      className="scroll-mt-24 px-4 py-20 sm:px-6 sm:py-24"
+      className="scroll-mt-24 px-safe py-16 sm:px-6 sm:py-20 md:py-24"
     >
       <motion.div
-        className="mx-auto max-w-3xl rounded-3xl border border-dashed border-stone-300/90 bg-stone-100/40 px-6 py-14 text-center sm:px-10 dark:border-white/20 dark:bg-zinc-900/40"
+        className="mx-auto max-w-3xl rounded-3xl border border-dashed border-stone-300/90 bg-stone-100/40 px-5 py-12 text-center sm:px-10 sm:py-14 dark:border-white/20 dark:bg-zinc-900/40"
         initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "0px", amount: "some" }}
         transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
       >
         <p className="text-sm font-semibold uppercase tracking-widest text-amber-900 dark:text-amber-400">
           {messages.soonKicker}
         </p>
-        <h2 className="font-display mt-2 text-3xl font-semibold tracking-tight text-stone-900 sm:text-4xl dark:text-zinc-50">
+        <h2 className="font-display mt-2 text-2xl font-semibold tracking-tight text-stone-900 sm:text-3xl md:text-4xl dark:text-zinc-50">
           {messages.soonTitle}
         </h2>
-        <p className="mt-5 text-lg leading-relaxed text-stone-600 dark:text-zinc-400">
+        <p className="mt-4 text-base leading-relaxed text-stone-600 sm:mt-5 sm:text-lg dark:text-zinc-400">
           {messages.soonBodyPrefix}
           <strong className="font-semibold text-stone-900 dark:text-zinc-100">
             {messages.soonBodyStrong}
@@ -35,10 +35,10 @@ export function ComingSoonSection() {
           {messages.soonBodySuffix}
         </p>
         <motion.div
-          className="mt-10 flex flex-wrap justify-center gap-3"
+          className="mt-8 flex flex-wrap justify-center gap-2.5 sm:mt-10 sm:gap-3"
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "0px", amount: "some" }}
           variants={{
             hidden: {},
             show: { transition: { staggerChildren: 0.06 } },

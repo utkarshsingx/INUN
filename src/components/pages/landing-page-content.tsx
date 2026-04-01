@@ -12,7 +12,7 @@ import InunHoverFooter from "@/components/blocks/InunHoverFooter";
 /** Single React tree so locale/theme context is shared (Astro multi-islands break context). */
 export function LandingPageContent() {
   return (
-    <main className="flex min-h-dvh min-w-0 flex-col overflow-x-hidden">
+    <main className="flex min-h-dvh min-w-0 flex-col overflow-x-hidden pb-safe">
       <HeroSection />
       <BuiltForStrip />
       <AboutSection />

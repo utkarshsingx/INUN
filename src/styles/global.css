@@ -95,6 +95,11 @@
     text-size-adjust: 100%;
   }
 
+  img,
+  video {
+    max-width: 100%;
+  }
+
   button,
   [role="button"] {
     touch-action: manipulation;
@@ -110,6 +115,17 @@
 
   ::selection {
     background-color: color-mix(in oklch, hsl(var(--primary)) 25%, transparent);
+  }
+
+  @media (max-width: 639.98px) {
+    a,
+    button {
+      -webkit-tap-highlight-color: color-mix(
+        in oklch,
+        hsl(var(--primary)) 18%,
+        transparent
+      );
+    }
   }
 }
 
@@ -144,4 +160,15 @@ html.inun-splash-active body {
 
 @utility card-surface-hover {
   @apply hover:-translate-y-0.5 hover:border-emerald-200/60 hover:shadow-md dark:hover:border-emerald-500/30;
+}
+
+/** Horizontal padding that respects notched device safe areas (mobile). */
+@utility px-safe {
+  padding-inline-start: max(1rem, env(safe-area-inset-left, 0px));
+  padding-inline-end: max(1rem, env(safe-area-inset-right, 0px));
+}
+
+/** Extra bottom padding above home indicator on iOS. */
+@utility pb-safe {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
 }

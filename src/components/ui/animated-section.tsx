@@ -52,7 +52,11 @@ export function AnimatedSection({
         className,
       )}
       {...motionProps}
-      viewport={{ once: true, margin: "-80px", amount: 0.2 }}
+      viewport={{
+        once: true,
+        margin: "0px",
+        amount: "some",
+      }}
     >
       {surface ? (
         <>
@@ -106,7 +110,7 @@ export function StaggeredBlock({ children, className }: StaggeredBlockProps) {
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: "0px", amount: "some" }}
       variants={container}
     >
       {Children.map(children, (child, i) =>

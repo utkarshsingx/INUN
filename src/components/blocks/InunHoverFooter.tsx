@@ -63,8 +63,8 @@ export default function InunHoverFooter() {
   ];
 
   return (
-    <footer className="relative mx-auto mb-10 mt-8 h-fit w-full max-w-[min(100%,calc(100vw-1.5rem))] overflow-hidden rounded-3xl border border-emerald-950/35 bg-gradient-to-br from-[#0c1210] via-[#0f1513] to-[#0a0e0c] shadow-[0_24px_80px_-12px_rgba(6,78,59,0.35)] ring-1 ring-white/[0.06] sm:mb-10 sm:mt-8 sm:max-w-none sm:px-0 md:mx-8">
-      <div className="relative z-40 mx-auto max-w-7xl p-8 sm:p-14">
+    <footer className="relative mx-auto mb-8 mt-6 h-fit w-full max-w-[min(100%,calc(100vw-1.25rem))] overflow-hidden rounded-3xl border border-emerald-950/35 bg-gradient-to-br from-[#0c1210] via-[#0f1513] to-[#0a0e0c] shadow-[0_24px_80px_-12px_rgba(6,78,59,0.35)] ring-1 ring-white/[0.06] sm:mb-10 sm:mt-8 sm:max-w-none sm:px-0 md:mx-8">
+      <div className="relative z-40 mx-auto max-w-7xl px-5 py-10 sm:p-14">
         <div className="grid grid-cols-1 gap-12 pb-12 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:gap-16">
           <div className="flex flex-col space-y-4">
             <div className="flex flex-wrap items-center gap-3">
@@ -94,7 +94,7 @@ export default function InunHoverFooter() {
                   <li key={link.label} className="relative">
                     <a
                       href={link.href}
-                      className="text-neutral-300 transition-colors hover:text-[#3ca2fa]"
+                      className="-mx-1 inline-flex min-h-11 items-center rounded-md px-1 py-2 text-neutral-300 transition-colors hover:text-[#3ca2fa] active:bg-white/5"
                       {...(link.href.startsWith("http")
                         ? {
                             target: "_blank",
@@ -126,7 +126,7 @@ export default function InunHoverFooter() {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-neutral-300 transition-colors hover:text-[#3ca2fa]"
+                      className="inline-flex min-h-11 items-center text-neutral-300 transition-colors hover:text-[#3ca2fa] active:underline"
                     >
                       {item.text}
                     </a>
@@ -159,7 +159,7 @@ export default function InunHoverFooter() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="inline-flex shrink-0 items-center justify-center rounded-lg p-1.5 text-neutral-400 transition-colors hover:text-[#3ca2fa] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3ca2fa]"
+                className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-lg p-2 text-neutral-400 transition-colors hover:text-[#3ca2fa] active:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3ca2fa]"
               >
                 {icon}
               </a>

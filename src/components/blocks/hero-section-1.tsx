@@ -42,13 +42,13 @@ export function HeroSection() {
         className="min-h-dvh w-full min-w-0 overflow-x-hidden text-stone-900 dark:text-zinc-50"
       >
         <section className="relative flex min-h-dvh w-full flex-col">
-          <div className="flex min-h-0 flex-1 flex-col justify-center px-4 pb-16 pt-[calc(5.5rem+env(safe-area-inset-top,0px))] sm:px-6 md:pb-20 md:pt-[calc(6rem+env(safe-area-inset-top,0px))]">
+          <div className="flex min-h-0 flex-1 flex-col justify-center pb-20 pe-[max(1rem,env(safe-area-inset-right,0px))] ps-[max(1rem,env(safe-area-inset-left,0px))] pt-[calc(5.5rem+env(safe-area-inset-top,0px))] sm:px-6 md:pb-20 md:pt-[calc(6rem+env(safe-area-inset-top,0px))]">
             <div className="mx-auto w-full max-w-7xl">
               <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
                 <AnimatedGroup variants={transitionVariants}>
                   <a
                     href="#lms"
-                    className="group bg-muted hover:bg-background mx-auto flex w-fit max-w-[min(100%,20rem)] items-center gap-3 rounded-full border border-stone-200/80 p-1 ps-3 shadow-md shadow-black/5 transition-all duration-300 dark:border-t-white/5 dark:shadow-zinc-950 sm:max-w-none sm:gap-4 sm:ps-4"
+                    className="group bg-muted hover:bg-background mx-auto flex min-h-11 w-fit max-w-[min(100%,20rem)] items-center gap-3 rounded-full border border-stone-200/80 p-1 ps-3 shadow-md shadow-black/5 transition-all duration-300 active:scale-[0.99] dark:border-t-white/5 dark:shadow-zinc-950 sm:max-w-none sm:gap-4 sm:ps-4"
                   >
                     <span className="text-foreground text-start text-sm leading-snug sm:text-sm">
                       {messages.heroBadge}
@@ -93,7 +93,7 @@ export function HeroSection() {
                       {messages.heroH1Line3}
                     </span>
                   </h1>
-                  <p className="text-muted-foreground mx-auto mt-8 max-w-2xl text-balance text-lg">
+                  <p className="text-muted-foreground mx-auto mt-6 max-w-2xl text-balance text-base leading-relaxed sm:mt-8 sm:text-lg">
                     {messages.heroSub}
                   </p>
                 </AnimatedGroup>
@@ -110,13 +110,13 @@ export function HeroSection() {
                     },
                     ...transitionVariants,
                   }}
-                  className="mt-12 flex flex-col items-center justify-center gap-3 md:flex-row md:gap-2"
+                  className="mt-10 flex w-full max-w-md flex-col items-stretch justify-center gap-3 sm:mx-auto sm:mt-12 sm:max-w-none sm:flex-row sm:items-center md:gap-2"
                 >
                   <div className="rounded-[14px] border border-stone-200/90 bg-stone-900/5 p-0.5 dark:bg-white/10">
                     <Button
                       asChild
                       size="lg"
-                      className="rounded-xl px-6 text-base"
+                      className="min-h-12 w-full rounded-xl px-6 text-base sm:min-h-11 sm:w-auto"
                     >
                       <a href={LMS_URL} target="_blank" rel="noopener noreferrer">
                         <span className="text-nowrap">{messages.heroCtaOpenLms}</span>
@@ -127,7 +127,7 @@ export function HeroSection() {
                     asChild
                     size="lg"
                     variant="ghost"
-                    className="h-11 rounded-xl px-6"
+                    className="min-h-12 w-full rounded-xl px-6 sm:min-h-11 sm:w-auto"
                   >
                     <a href="#about">
                       <span className="text-nowrap">{messages.heroCtaLearn}</span>
@@ -253,19 +253,19 @@ function HeroHeader() {
 
             <div
               className={cn(
-                "mb-6 hidden max-h-[min(70vh,28rem)] w-full flex-wrap items-center justify-end gap-4 space-y-8 overflow-y-auto overscroll-contain rounded-3xl border border-stone-200/90 bg-white/95 p-6 shadow-2xl shadow-stone-300/25 md:flex-nowrap dark:border-white/10 dark:bg-zinc-900/95 dark:shadow-none",
+                "mb-6 hidden max-h-[min(70vh,28rem)] w-full flex-wrap items-center justify-end gap-4 space-y-8 overflow-y-auto overscroll-contain rounded-3xl border border-stone-200/90 bg-white/95 p-5 pb-safe shadow-2xl shadow-stone-300/25 md:flex-nowrap dark:border-white/10 dark:bg-zinc-900/95 dark:shadow-none",
                 "group-data-[state=active]:flex",
-                "lg:m-0 lg:max-h-none lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:overflow-visible lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:lg:bg-transparent",
+                "lg:m-0 lg:max-h-none lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:overflow-visible lg:border-transparent lg:bg-transparent lg:p-0 lg:pb-0 lg:shadow-none dark:lg:bg-transparent",
               )}
             >
               <PreferenceControls className="hidden lg:flex" />
               <div className="lg:hidden">
-                <ul className="space-y-6 text-base">
+                <ul className="space-y-1 text-base">
                   {menuItems.map((item) => (
                     <li key={item.href}>
                       <a
                         href={item.href}
-                        className="text-muted-foreground hover:text-accent-foreground block duration-150"
+                        className="text-muted-foreground hover:text-accent-foreground flex min-h-12 items-center rounded-lg px-0 py-2 duration-150 active:bg-stone-100/80 dark:active:bg-white/5"
                         onClick={() => setMenuState(false)}
                       >
                         <span>{item.name}</span>
@@ -278,7 +278,10 @@ function HeroHeader() {
                 <Button
                   asChild
                   size="sm"
-                  className={cn(isScrolled && "lg:hidden")}
+                  className={cn(
+                    "min-h-11 w-full sm:min-h-9 sm:w-auto",
+                    isScrolled && "lg:hidden",
+                  )}
                 >
                   <a
                     href={LMS_URL}
