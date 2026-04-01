@@ -1,0 +1,37 @@
+---
+import "../styles/global.css";
+import { PAGE_DESCRIPTION, PAGE_TITLE } from "../constants";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = PAGE_TITLE, description = PAGE_DESCRIPTION } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="bg-stone-50">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body class="relative min-h-dvh antialiased text-stone-900">
+    <div class="relative z-10">
+      <slot />
+    </div>
+  </body>
+</html>
