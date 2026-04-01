@@ -63,8 +63,8 @@ export default function InunHoverFooter() {
   ];
 
   return (
-    <footer className="relative mx-auto mb-8 mt-6 h-fit w-full max-w-[min(100%,calc(100vw-1.25rem))] overflow-hidden rounded-3xl border border-emerald-950/35 bg-gradient-to-br from-[#0c1210] via-[#0f1513] to-[#0a0e0c] shadow-[0_24px_80px_-12px_rgba(6,78,59,0.35)] ring-1 ring-white/[0.06] sm:mb-10 sm:mt-8 sm:max-w-none sm:px-0 md:mx-8">
-      <div className="relative z-40 mx-auto max-w-7xl px-5 py-10 sm:p-14">
+    <footer className="relative isolate mb-8 mt-6 w-full max-w-screen-2xl overflow-hidden rounded-3xl border border-emerald-950/35 bg-gradient-to-br from-[#0c1210] via-[#0f1513] to-[#0a0e0c] shadow-[0_24px_80px_-12px_rgba(6,78,59,0.35)] ring-1 ring-white/[0.06] sm:mb-10 sm:mt-8 sm:mx-auto">
+      <div className="relative z-40 mx-auto max-w-screen-2xl px-5 py-10 sm:p-14">
         <div className="grid grid-cols-1 gap-12 pb-12 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:gap-16">
           <div className="flex flex-col space-y-4">
             <div className="flex flex-wrap items-center gap-3">

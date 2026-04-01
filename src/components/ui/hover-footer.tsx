@@ -132,7 +132,7 @@ export function TextHoverEffect({
 export function FooterBackgroundGradient() {
   return (
     <div
-      className="pointer-events-none absolute inset-0 z-0 overflow-hidden rounded-3xl"
+      className="pointer-events-none absolute inset-0 z-0 overflow-hidden rounded-[inherit]"
       style={{
         background: `
           radial-gradient(ellipse 90% 70% at 15% 0%, rgba(16, 185, 129, 0.18) 0%, transparent 52%),

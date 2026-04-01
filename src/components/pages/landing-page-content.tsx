@@ -20,7 +20,9 @@ export function LandingPageContent() {
       <QuranArabicSection />
       <AiOptionsSection />
       <ComingSoonSection />
-      <InunHoverFooter />
+      <div className="w-full px-safe sm:px-6 md:px-8 lg:px-10">
+        <InunHoverFooter />
+      </div>
     </main>
   );
 }

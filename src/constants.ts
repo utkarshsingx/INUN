@@ -1,4 +1,4 @@
-export const LMS_URL = "https://inun.ailinc.com/" as const;
+export const LMS_URL = "https://learn.inun.com/" as const;
 export const INUN_LOGO_URL =
   "https://inun.com/image/logo/logo-black.png" as const;
 export const INUN_SITE_URL = "https://inun.com/" as const;
