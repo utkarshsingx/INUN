@@ -102,13 +102,13 @@ export const messagesEn: Messages = {
   loaderPreparing: "Preparing your learning network",
   heroBadge: "Inun Social & Learning Network",
   heroH1Line1: "Modern learning for",
-  heroH1Line3: "One connected network—from your first lesson to your career.",
+  heroH1Line3: "From first lesson to career.",
   heroSub:
     "Courses, live sessions, assessments, AI mock interviews, and a job portal in one place—built so learners and educators move forward together.",
   heroCtaOpenLms: "Open LMS",
   heroCtaLearn: "Learn about Inun",
   heroExploreLms: "Explore the LMS features",
-  heroBuiltFor: "Built for real programs",
+  heroBuiltFor: "Real programs",
   heroRotating: [
     "Quran & Arabic",
     "live classes",
@@ -128,7 +128,7 @@ export const messagesEn: Messages = {
     "Your hub",
   ],
   aboutKicker: "About",
-  aboutTitle: "What is the Inun network?",
+  aboutTitle: "About Inun",
   aboutP1Prefix: "Inun is a ",
   aboutP1Strong: "social and learning network",
   aboutP1Suffix:
@@ -137,8 +137,8 @@ export const messagesEn: Messages = {
     "Whether you are beginning your journey or deepening existing skills, Inun connects you to curriculum, schedules, and progress in one place. The same LMS hosts courses (including video and quiz content), assessments, live sessions, mock interviews, a job portal with application tracking, and more—so you spend less time juggling tools and more time learning.",
   aboutP3:
     "Our focus starts with foundational Islamic literacy—Quran and Arabic—delivered with modern tooling and live instruction. More subjects will follow on the same interactive platform.",
-  lmsKicker: "Platform",
-  lmsTitle: "What you get in the Inun LMS",
+  lmsKicker: "LMS",
+  lmsTitle: "Learning platform",
   lmsIntro:
     "The Inun learning portal brings together the same capabilities our learners use every day: structured courses, assessments, AI mock interviews, a job portal with application tracking, live Zoom sessions, attendance, and community—all behind one sign-in at the link below.",
   lmsSpotlight:
@@ -175,8 +175,8 @@ export const messagesEn: Messages = {
       body: "Discuss and connect with peers in the community area alongside your courses, so learning stays social even between live sessions.",
     },
   ],
-  quranKicker: "Focus now",
-  quranTitle: "Quran & Arabic—live classes and modern tools",
+  quranKicker: "Focus",
+  quranTitle: "Quran & Arabic",
   quranIntro:
     "Our first learning tracks focus on Quran recitation (tajweed), memorization support where appropriate, and Arabic so you can engage with the text with growing confidence. Instruction blends ",
   quranIntroStrong: "live classes",
@@ -195,8 +195,8 @@ export const messagesEn: Messages = {
       body: "Where it helps, we use AI-powered features to suggest practice, surface explanations, and keep you moving—always alongside human instruction, not instead of it.",
     },
   ],
-  aiKicker: "Responsible AI",
-  aiTitle: "AI options that support real learning",
+  aiKicker: "AI",
+  aiTitle: "Assisted learning",
   aiIntro:
     "Artificial intelligence in Inun is optional assistance: it complements your teachers and peers—never a replacement for live guidance on sensitive or religious topics. In the LMS, you will see it most directly in features like mock interviews and future assistive tools.",
   aiOptions: [
@@ -221,8 +221,8 @@ export const messagesEn: Messages = {
       body: "Administrators and teachers use AI-assisted course tooling in the same ecosystem—more time for live teaching and mentoring.",
     },
   ],
-  soonKicker: "Roadmap",
-  soonTitle: "More subjects—coming soon",
+  soonKicker: "Next",
+  soonTitle: "More subjects",
   soonBodyPrefix: "We are building an ",
   soonBodyStrong: "interactive learning platform",
   soonBodySuffix:
@@ -279,13 +279,13 @@ export const messagesAr: Messages = {
   loaderPreparing: "جاري تجهيز شبكتك التعليمية",
   heroBadge: "إنون — شبكة اجتماعية وتعليمية",
   heroH1Line1: "تعلّم حديث لـ",
-  heroH1Line3: "شبكة واحدة تربط أول درس بمسارك المهني.",
+  heroH1Line3: "من الدرس الأول إلى مسارك.",
   heroSub:
     "دورات، جلسات مباشرة، تقييمات، مقابلات تجريبية بالذكاء الاصطناعي، وبوابة وظائف في مكان واحد—ليتقدّم المتعلمون والمعلمون معًا.",
   heroCtaOpenLms: "فتح المنصة",
   heroCtaLearn: "تعرّف على إنون",
   heroExploreLms: "استكشف مزايا المنصة",
-  heroBuiltFor: "مصمم للبرامج الحقيقية",
+  heroBuiltFor: "برامج حقيقية",
   heroRotating: [
     "القرآن والعربية",
     "الحصص المباشرة",
@@ -305,7 +305,7 @@ export const messagesAr: Messages = {
     "مركزك",
   ],
   aboutKicker: "نبذة",
-  aboutTitle: "ما هي شبكة إنون؟",
+  aboutTitle: "عن إنون",
   aboutP1Prefix: "إنون ",
   aboutP1Strong: "شبكة اجتماعية وتعليمية",
   aboutP1Suffix:
@@ -315,7 +315,7 @@ export const messagesAr: Messages = {
   aboutP3:
     "نبدأ بالثقافة الإسلامية الأساسية—القرآن والعربية—بأدوات حديثة وتعليم مباشر. ستُضاف مواد أخرى على نفس المنصة التفاعلية.",
   lmsKicker: "المنصة",
-  lmsTitle: "ما تحصل عليه في منصة إنون",
+  lmsTitle: "التعلّم",
   lmsIntro:
     "تجمع بوابة التعلم لدينا ما يستخدمه المتعلمون يوميًا: دورات منظمة، تقييمات، مقابلات تجريبية بالذكاء الاصطناعي، بوابة وظائف وتتبع الطلبات، جلسات زووم مباشرة، حضور، ومجتمع—بكل ذلك خلف تسجيل دخول واحد عبر الرابط أدناه.",
   lmsSpotlight:
@@ -352,8 +352,8 @@ export const messagesAr: Messages = {
       body: "ناقش وتواصل مع الأقران في مساحة المجتمع بجانب دوراتك، ليبقى التعلم اجتماعيًا بين الحصص.",
     },
   ],
-  quranKicker: "التركيز الآن",
-  quranTitle: "القرآن والعربية—حصص مباشرة وأدوات حديثة",
+  quranKicker: "التركيز",
+  quranTitle: "القرآن والعربية",
   quranIntro:
     "مساراتنا الأولى تركز على التلاوة (التجويد) ودعم الحفظ حيث يناسب، والعربية لتتعامل مع النص بثقة متزايدة. يمزج التعليم ",
   quranIntroStrong: "حصصًا مباشرة",
@@ -372,8 +372,8 @@ export const messagesAr: Messages = {
       body: "حيث يساعد، نستخدم مزايا بالذكاء الاصطناعي لاقتراح التدريب وشرح المفاهيم وإبقائك متحركًا—دائمًا إلى جانب المعلم البشري لا بديلاً عنه.",
     },
   ],
-  aiKicker: "ذكاء اصطناعي مسؤول",
-  aiTitle: "خيارات ذكاء اصطناعي تدعم التعلم الحقيقي",
+  aiKicker: "الذكاء الاصطناعي",
+  aiTitle: "تعلّم مدعوم",
   aiIntro:
     "الذكاء الاصطناعي في إنون مساعدة اختيارية: يكمّل معلميك وأقرانك—وليس بديلاً عن الإرشاد المباشر في المواضيع الحساسة أو الدينية. في المنصة ستراه غالبًا في المقابلات التجريبية والمزايا المساعدة مستقبلًا.",
   aiOptions: [
@@ -398,8 +398,8 @@ export const messagesAr: Messages = {
       body: "يستخدم المشرفون والمعلمون أدوات مساعدة بالذكاء الاصطناعي في نفس النظام—وقت أطول للتدريس المباشر والإرشاد.",
     },
   ],
-  soonKicker: "خارطة الطريق",
-  soonTitle: "مواد إضافية—قريبًا",
+  soonKicker: "لاحقًا",
+  soonTitle: "مواد جديدة",
   soonBodyPrefix: "نبني ",
   soonBodyStrong: "منصة تعليمية تفاعلية",
   soonBodySuffix:
