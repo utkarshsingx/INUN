@@ -24,10 +24,8 @@ export type Messages = {
   heroSub: string;
   heroCtaOpenLms: string;
   heroCtaLearn: string;
-  heroExploreLms: string;
   heroBuiltFor: string;
   heroRotating: readonly string[];
-  heroStrip: readonly string[];
   aboutKicker: string;
   aboutTitle: string;
   aboutP1Prefix: string;
@@ -41,6 +39,13 @@ export type Messages = {
   lmsSpotlight: string;
   lmsOpenLms: string;
   lmsCourseImgAlt: string;
+  videoCaptionCourse: string;
+  videoCaptionAssessment: string;
+  videoCaptionMockInterview: string;
+  videoCaptionJobPortal: string;
+  /** Accessible label prefix for video play control. */
+  videoPlayHelp: string;
+  videoLightboxClose: string;
   lmsFeatures: readonly { title: string; body: string }[];
   quranKicker: string;
   quranTitle: string;
@@ -107,7 +112,6 @@ export const messagesEn: Messages = {
     "Courses, live sessions, assessments, AI mock interviews, and a job portal in one place—built so learners and educators move forward together.",
   heroCtaOpenLms: "Open LMS",
   heroCtaLearn: "Learn about Inun",
-  heroExploreLms: "Explore the LMS features",
   heroBuiltFor: "Real programs",
   heroRotating: [
     "Quran & Arabic",
@@ -116,16 +120,6 @@ export const messagesEn: Messages = {
     "mock interviews",
     "careers & jobs",
     "your community",
-  ],
-  heroStrip: [
-    "Courses & video",
-    "Quizzes",
-    "Assessments",
-    "Community",
-    "Course experience",
-    "Live & learn",
-    "Progress & results",
-    "Your hub",
   ],
   aboutKicker: "About",
   aboutTitle: "About Inun",
@@ -144,7 +138,13 @@ export const messagesEn: Messages = {
   lmsSpotlight:
     "Your institution turns individual features on or off, but the platform is built to cover the full journey—from lessons and quizzes to assessments, careers, and live instruction.",
   lmsOpenLms: "Open LMS",
-  lmsCourseImgAlt: "Inun LMS course experience",
+  lmsCourseImgAlt: "Inun platform introduction video",
+  videoCaptionCourse: "Courses & video",
+  videoCaptionAssessment: "Assessments",
+  videoCaptionMockInterview: "Mock interviews",
+  videoCaptionJobPortal: "Job portal",
+  videoPlayHelp: "Play",
+  videoLightboxClose: "Close video",
   lmsFeatures: [
     {
       title: "Courses, videos & quizzes",
@@ -284,7 +284,6 @@ export const messagesAr: Messages = {
     "دورات، جلسات مباشرة، تقييمات، مقابلات تجريبية بالذكاء الاصطناعي، وبوابة وظائف في مكان واحد—ليتقدّم المتعلمون والمعلمون معًا.",
   heroCtaOpenLms: "فتح المنصة",
   heroCtaLearn: "تعرّف على إنون",
-  heroExploreLms: "استكشف مزايا المنصة",
   heroBuiltFor: "برامج حقيقية",
   heroRotating: [
     "القرآن والعربية",
@@ -293,16 +292,6 @@ export const messagesAr: Messages = {
     "المقابلات التجريبية",
     "المسارات المهنية",
     "مجتمعك",
-  ],
-  heroStrip: [
-    "دورات وفيديو",
-    "اختبارات قصيرة",
-    "التقييمات",
-    "المجتمع",
-    "تجربة الدورة",
-    "تعلّم مباشر",
-    "التقدم والنتائج",
-    "مركزك",
   ],
   aboutKicker: "نبذة",
   aboutTitle: "عن إنون",
@@ -321,7 +310,13 @@ export const messagesAr: Messages = {
   lmsSpotlight:
     "مؤسستك تفعّل أو تعطّل المزايا حسب الحاجة، لكن المنصة مصممة لتغطي الرحلة كاملة—من الدروس والاختبارات القصيرة إلى التقييمات والوظائف والتعليم المباشر.",
   lmsOpenLms: "فتح المنصة",
-  lmsCourseImgAlt: "تجربة الدورة في منصة إنون",
+  lmsCourseImgAlt: "فيديو تعريفي بمنصة إنون",
+  videoCaptionCourse: "دورات وفيديو",
+  videoCaptionAssessment: "التقييمات",
+  videoCaptionMockInterview: "مقابلات تجريبية",
+  videoCaptionJobPortal: "بوابة الوظائف",
+  videoPlayHelp: "تشغيل",
+  videoLightboxClose: "إغلاق الفيديو",
   lmsFeatures: [
     {
       title: "دورات وفيديو واختبارات قصيرة",
