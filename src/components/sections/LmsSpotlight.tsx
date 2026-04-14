@@ -7,7 +7,12 @@ import {
 } from "@/components/ui/animated-section";
 import { FeatureIcon, type FeatureIconName } from "@/components/ui/feature-icon";
 import { LmsButton } from "@/components/ui/lms-button";
+import { VideoWithPoster } from "@/components/ui/video-with-poster";
 import { useAppPreferences } from "@/contexts/app-preferences-context";
+import {
+  INUN_CLOUDINARY_VIDEOS,
+  INUN_VIDEO_POSTERS,
+} from "@/constants/media";
 
 const icons: FeatureIconName[] = [
   "book",
@@ -95,16 +100,14 @@ export function LmsSpotlight() {
           viewport={{ once: true, margin: "0px", amount: "some" }}
           transition={{ duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          <div className="relative aspect-[16/11] w-full overflow-hidden rounded-2xl border border-stone-200/90 bg-white shadow-lg ring-1 ring-stone-900/5 sm:aspect-auto sm:h-auto dark:border-white/10 dark:bg-zinc-900">
-            <img
-              src="/images/course.png"
-              alt={messages.lmsCourseImgAlt}
-              width={1920}
-              height={1080}
-              className="h-full w-full object-cover object-top sm:h-auto sm:max-h-[min(70vh,560px)] sm:w-full"
-              sizes="(max-width: 1024px) 100vw, 560px"
-              loading="lazy"
-              decoding="async"
+          <div className="relative aspect-[16/11] w-full overflow-hidden rounded-2xl border border-stone-200/90 bg-gradient-to-br from-stone-100/90 to-white shadow-lg ring-1 ring-stone-900/5 sm:aspect-auto sm:h-auto dark:border-white/10 dark:from-zinc-900 dark:to-zinc-950 dark:ring-white/5">
+            <VideoWithPoster
+              src={INUN_CLOUDINARY_VIDEOS.intro}
+              poster={INUN_VIDEO_POSTERS.intro}
+              title={messages.lmsCourseImgAlt}
+              playLabelPrefix={messages.videoPlayHelp}
+              variant="hero"
+              className="h-full min-h-[200px] w-full object-cover object-top sm:h-auto sm:max-h-[min(70vh,560px)] sm:min-h-0"
             />
           </div>
           <div>
